@@ -9,32 +9,26 @@ public class Company {
 
 	private ArrayList<Department> DepartmentList;
 
-	public  Company(){
-          
+	
+	public Company(String nameCompany, ArrayList<Department> departmentList) {
+		this.nameCompany = nameCompany;
+		DepartmentList = departmentList;
 	}
-
-	public  Company(String nameCompany) {
-
-	}
-
+	
 	public String getNameCompany() {
-		return null;
+		return nameCompany;
 	}
 
-	public void setNameCompany() {
-
+	public void setNameCompany(String nameCompany) {
+		this.nameCompany = nameCompany;
 	}
 
 	public ArrayList<Department> getDepartmentList() {
-		return null;
+		return DepartmentList;
 	}
 
-	public void addDepartment() {
-
-	}
-
-	public void delDepartment() {
-
+	public void setDepartmentList(ArrayList<Department> departmentList) {
+		DepartmentList = departmentList;
 	}
 
 }
