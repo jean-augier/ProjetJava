@@ -30,5 +30,13 @@ public class Company {
 	public void setDepartmentList(ArrayList<Department> departmentList) {
 		DepartmentList = departmentList;
 	}
+	
+	public void addDepartement(Department newDpt) {
+		this.DepartmentList.add(newDpt);
+	}
+	
+	public void removeDepartement(Department dpt) {
+		this.DepartmentList.remove(dpt);
+	}
 
 }
