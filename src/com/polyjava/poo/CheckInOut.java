@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class CheckInOut extends Time {
 	
-	public void CheckInOut(Employee employee) {
+	public CheckInOut(Employee employee) {
 
 	}
 	

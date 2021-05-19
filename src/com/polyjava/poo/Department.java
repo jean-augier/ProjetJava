@@ -11,57 +11,66 @@ public class Department {
 	private ArrayList<Employee> EmployeeList;
 
 	private static int counter;
+	
+
+	public Department(ArrayList<Employee> employeeList) {
+		super();
+		EmployeeList = employeeList;
+	}
+
+	public Department(String nameDepartment) {
+		super();
+		this.nameDepartment = nameDepartment;
+	}
+
+	public int getIdDepartment() {
+		return idDepartment;
+	}
+
+	public void setIdDepartment(int idDepartment) {
+		this.idDepartment = idDepartment;
+	}
+
+	public String getNameDepartment() {
+		return nameDepartment;
+	}
+
+	public void setNameDepartment(String nameDepartment) {
+		this.nameDepartment = nameDepartment;
+	}
+
+	public ArrayList<Employee> getEmployeeList() {
+		return EmployeeList;
+	}
+
+	public void setEmployeeList(ArrayList<Employee> employeeList) {
+		EmployeeList = employeeList;
+	}
+
+	public static int getCounter() {
+		return counter;
+	}
+
+	public static void setCounter(int counter) {
+		Department.counter = counter;
+	}
 
 	
 	public  Department() {
 
 	}
 
-	public  Department(String nameDepartment) {
 
-	}
+	/*void Department() {
 
-	public  Department(ArrayList<Employee> EmployeeList) {
+	}*/
 
-	}
-
-	void Department() {
-
-	}
-
-	public int getIdDepartment() {
-		return 0;
-	}
-
-	public void setIdDepartment(int newId) {
-
-	}
-
-	public String getNameDepartment() {
-		return null;
-	}
-
-	public void setNameDepartment(String newName) {
-
-	}
-
-	public ArrayList<Employee> getEmployeeList() {
-		return null;
-	}
 
 	public void addEmployee(Employee newEmployee) {
 
 	}
 
 	public void delEmployee(Employee employeeToDelete) {
-
-	}
-
-	public static int getCounter() {
-		return 0;
-	}
-
-	public void setCounter(int newCounter) {
 
 	}
 
