@@ -48,22 +48,20 @@ public class Department {
 		}
 	}
 	
-
-	public String getNameDepartment() {
-		return nameDepartment;
-	}
-
-	public void setNameDepartment(String nameDepartment) {
-		this.nameDepartment = nameDepartment;
-	}
-	
-
 	public ArrayList<Employee> getEmployeeList() {
 		return EmployeeList;
 	}
 
 	public void setEmployeeList(ArrayList<Employee> employeeList) {
 		EmployeeList = employeeList;
+	}
+	
+	public String getNameDepartment() {
+		return nameDepartment;
+	}
+
+	public void setNameDepartment(String nameDepartment) {
+		this.nameDepartment = nameDepartment;
 	}
 
 	
