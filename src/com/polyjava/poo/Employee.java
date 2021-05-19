@@ -9,51 +9,93 @@ public class Employee extends Person {
 	private LocalTime startOfShift;
 
 	private LocalTime endOfShift;
+	
+	private Department department;
 
-	private static int counter;
+	private static int counter = 0;
 
-	public  Employee() {
-
+	public  Employee() 
+	{
+		counter++;
+		setIdEmployee(counter);
+		setName(null);
+		setSurname(null);
+		setStartOfShift(null);
+		setEndOfShift(null);
+		setDepartment(null);
 	}
 
-	public  Employee(Employee employee) {
-
+	public  Employee(Employee employee) 
+	{
+		counter++;
+		setIdEmployee(counter);
+		setName(employee.getName());
+		setSurname(employee.getSurname());
+		setStartOfShift(employee.getStartOfShift());
+		setEndOfShift(employee.getEndOfShift());
+		setDepartment(employee.getDepartment());
 	}
 
-	public int getIdEmployee() {
-		return 0;
+	public int getIdEmployee() 
+	{
+		return idEmployee;
 	}
 
-	public void setIdEmployee(int id) {
-
+	public void setIdEmployee(int id)
+	{
+		if (id > 0)
+		{
+			idEmployee = id;
+		}
+		else
+		{
+			throw new ArithmeticException("id must be a postive integer !");
+		}
 	}
 
-	public LocalTime getStartOfShift() {
-		return null;
+	public LocalTime getStartOfShift() 
+	{
+		return startOfShift;
 	}
 
-	public void setStartOfShift(LocalTime actualTime) {
-
+	public void setStartOfShift(LocalTime actualTime) 
+	{
+		startOfShift = actualTime;
 	}
 
 	public LocalTime getEndOfShift() {
-		return null;
+		return endOfShift;
 	}
 
 	public void setEndOfShift(LocalTime actualTime) {
-
+		endOfShift = actualTime;
+	}
+	
+	public Department getDepartment()
+	{
+		return department;
+	}
+	
+	public void setDepartment(Department dpt)
+	{
+		department = dpt;
 	}
 
 	public static int getCounter() {
-		return 0;
+		return counter;
 	}
 
-	public void setCounter(int newCounter) {
-
+	public void setCounter(int newCounter) 
+	{
+		counter = newCounter;
 	}
 
-	public String toString() {
-		return null;
+	public String toString()
+	{
+		String msg = super.toString() + System.lineSeparator();
+		msg += getDepartment() + " " + getStartOfShift().getHour() + ":" + getStartOfShift().getMinute();
+		msg += " " + getEndOfShift().getHour() + ":" + getEndOfShift().getMinute();
+		return msg;
 	}
 
 }

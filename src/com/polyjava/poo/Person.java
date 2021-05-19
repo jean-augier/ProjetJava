@@ -2,36 +2,47 @@ package com.polyjava.poo;
 
 public class Person {
 
-	private String namePerson;
+	protected String namePerson;
 
-	private String surnamePerson;
+	protected String surnamePerson;
 
-	public void Person() {
-
+	public Person() 
+	{
+		setName(null);
+		setSurname(null);
 	}
 
-	public void Person(Person person) {
-
+	public Person(Person person) {
+		setName(person.getName());
+		setSurname(person.getSurname());
 	}
 
-	public void Person(String firstName, String lastName) {
-
+	public Person(String firstName, String lastName) 
+	{
+		setName(firstName);
+		setSurname(lastName);
 	}
 
 	public String getName() {
-		return null;
+		return namePerson;
 	}
 
 	public void setName(String name) {
-
+		namePerson = name;
 	}
 
 	public String getSurname() {
-		return null;
+		return surnamePerson;
 	}
 
 	public void setSurname(String surname) {
-
+		surnamePerson = surname;
+	}
+	
+	public String toString()
+	{
+		String msg = getName() + " " + getSurname() + " ";
+		return msg;
 	}
 
 }
