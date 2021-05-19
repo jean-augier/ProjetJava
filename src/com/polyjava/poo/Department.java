@@ -12,6 +12,15 @@ public class Department {
 
 	private static int counter;
 	
+	
+	public  Department() {
+		counter ++;
+		setIdDepartment(counter);
+		EmployeeList = null;
+		setNameDepartment(null);
+		setEmployeeList(null);
+	}
+
 
 	public Department(ArrayList<Employee> employeeList) {
 		super();
@@ -22,14 +31,23 @@ public class Department {
 		super();
 		this.nameDepartment = nameDepartment;
 	}
+	
 
 	public int getIdDepartment() {
 		return idDepartment;
 	}
 
-	public void setIdDepartment(int idDepartment) {
-		this.idDepartment = idDepartment;
+	public void setIdDepartment(int id) {
+		if (id > 0)
+		{
+			idDepartment = id;
+		}
+		else
+		{
+			throw new ArithmeticException("id must be a postive integer !");
+		}
 	}
+	
 
 	public String getNameDepartment() {
 		return nameDepartment;
@@ -38,6 +56,7 @@ public class Department {
 	public void setNameDepartment(String nameDepartment) {
 		this.nameDepartment = nameDepartment;
 	}
+	
 
 	public ArrayList<Employee> getEmployeeList() {
 		return EmployeeList;
@@ -47,35 +66,34 @@ public class Department {
 		EmployeeList = employeeList;
 	}
 
+	
 	public static int getCounter() {
 		return counter;
 	}
 
-	public static void setCounter(int counter) {
-		Department.counter = counter;
+	public static void setCounter(int newcounter) {
+		Department.counter = newcounter;
 	}
 
 	
-	public  Department() {
-
-	}
-
-
-	/*void Department() {
-
-	}*/
-
 
 	public void addEmployee(Employee newEmployee) {
-
+		EmployeeList.add(newEmployee);
 	}
 
 	public void delEmployee(Employee employeeToDelete) {
-
+		if (!EmployeeList.remove(employeeToDelete))
+		{
+			System.err.println("Tentative de retirer un Employee non contenu dans la liste");
+		}
+		else {
+			EmployeeList.remove(employeeToDelete);
+		}
 	}
 
 	public String toString() {
-		return null;
+		String msg = getNameDepartment() + " " + getIdDepartment() + " ";
+		return msg;
 	}
 
 }
