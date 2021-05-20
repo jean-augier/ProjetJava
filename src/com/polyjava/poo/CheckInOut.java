@@ -4,20 +4,28 @@ import java.time.LocalDate;
 
 public class CheckInOut extends Time {
 	
-	public CheckInOut(Employee employee) {
+	private Employee EmployeeCheck;
 
+	public CheckInOut(Employee employeeCheck) {
+		super();
+		EmployeeCheck = employeeCheck;
 	}
-	
+
+	public CheckInOut() {
+		super();
+	}
+
 	public Employee getEmployeeCheck() {
-		return null;
+		return EmployeeCheck;
 	}
 
-	public void setEmployeeCheck(Employee employee) {
-
+	public void setEmployeeCheck(Employee employeeCheck) {
+		EmployeeCheck = employeeCheck;
 	}
 
+	@Override
 	public String toString() {
-		return null;
+		return "CheckInOut : Employee = " + EmployeeCheck + ", date = " + this.getDate() + ", hour = "+ this.getHour();
 	}
 
 }
