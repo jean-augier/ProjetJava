@@ -1,6 +1,7 @@
 package com.polyjava.poo;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Employee extends Person {
 
@@ -13,6 +14,8 @@ public class Employee extends Person {
 	private Department department;
 
 	private static int counter = 0;
+	
+	private ArrayList<Planning> PlanningList;
 
 	public  Employee() 
 	{
@@ -88,6 +91,22 @@ public class Employee extends Person {
 	public void setCounter(int newCounter) 
 	{
 		counter = newCounter;
+	}
+	
+	public ArrayList<Planning> getPlanningList() {
+		return PlanningList;
+	}
+
+	public void setPlanningList(ArrayList<Planning> planningList) {
+		PlanningList = planningList;
+	}
+
+	public void addPlanning(Planning p) {
+		this.PlanningList.add(p);
+	}
+	
+	public void removePlanning(Planning p) {
+		this.PlanningList.remove(p);
 	}
 
 	public String toString()
