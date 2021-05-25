@@ -1,8 +1,8 @@
 package com.polyjava.poo;
 
-import java.time.LocalDate;
+import java.io.Serializable;
 
-public class CheckInOut extends Time {
+public class CheckInOut extends Time implements Serializable{
 	
 	private Employee EmployeeCheck;
 
@@ -25,7 +25,7 @@ public class CheckInOut extends Time {
 
 	@Override
 	public String toString() {
-		return "CheckInOut : Employee = " + EmployeeCheck + ", date = " + this.getDate() + ", hour = "+ this.getHour();
+		return "CheckInOut : Employee = " + getEmployeeCheck().toString() + super.toString();
 	}
 
 }

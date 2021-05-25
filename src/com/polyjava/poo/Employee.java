@@ -2,8 +2,9 @@ package com.polyjava.poo;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Employee extends Person {
+public class Employee extends Person implements Serializable{
 
 	private int idEmployee;
 
@@ -111,9 +112,9 @@ public class Employee extends Person {
 
 	public String toString()
 	{
-		String msg = super.toString() + System.lineSeparator();
-		msg += getDepartment() + " " + getStartOfShift().getHour() + ":" + getStartOfShift().getMinute();
-		msg += " " + getEndOfShift().getHour() + ":" + getEndOfShift().getMinute();
+		String msg = super.toString() + getDepartment();
+		msg +=  System.lineSeparator() + "start at " + getStartOfShift().getHour() + ":" + getStartOfShift().getMinute();
+		msg += " , end at " + getEndOfShift().getHour() + ":" + getEndOfShift().getMinute() + System.lineSeparator();
 		return msg;
 	}
 

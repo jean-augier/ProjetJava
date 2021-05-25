@@ -83,7 +83,7 @@ public class Time {
 	}
 
 	public String toString() {
-		return date.toString() + " " + hour.toString();
+		return hour.getHour() + ":" + hour.getMinute() + ", rounded : " + getRoundedHour(getHour()).getHour() + ":" + getRoundedHour(getHour()).getMinute() + ", date : " + date.toString();
 	}
 
 }
