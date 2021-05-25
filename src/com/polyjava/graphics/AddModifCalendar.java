@@ -12,75 +12,64 @@ import javax.swing.JButton;
 public class AddModifCalendar {
 
 	public JFrame frame;
-
+	
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddModifCalendar window = new AddModifCalendar();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
+	 * Constructor
 	 */
 	public AddModifCalendar() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
+/**
+ * Initializer
+ */
 	private void initialize() {
+		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 176);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Planning");
-		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		lblNewLabel.setBounds(182, 11, 66, 20);
-		frame.getContentPane().add(lblNewLabel);
+		frame.setBounds(100, 100, 450, 176);   /** Setting bounds for our frame */
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 50, 97, 22);
-		comboBox.addItem("Lundi");
-		comboBox.addItem("Mardi");
-		comboBox.addItem("Mercredi");
-		comboBox.addItem("Jeudi");
-		comboBox.addItem("Vendredi");
-		frame.getContentPane().add(comboBox);
+		frame.setResizable(false);     /** Setting resizability for our frame */
 		
-		JLabel lblNewLabel_1 = new JLabel("Hour");
-		lblNewLabel_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(147, 54, 46, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  /** Setting the close option for our window */
 		
-		JLabel lblNewLabel_2 = new JLabel("Minutes");
-		lblNewLabel_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(288, 54, 46, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		frame.getContentPane().setLayout(null); /** Setting the free layout content type  for our frame */
 		
-		JSpinField spinField = new JSpinField();
-		spinField.setBounds(192, 52, 30, 20);
-		frame.getContentPane().add(spinField);
+
+		JLabel lblPlanning = new JLabel("Planning");  
+		lblPlanning.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		lblPlanning.setBounds(182, 11, 66, 20);
+		frame.getContentPane().add(lblPlanning);  /** Adding the label to the contentPane  */
 		
-		JSpinField spinField_1 = new JSpinField();
-		spinField_1.setBounds(344, 52, 30, 20);
-		frame.getContentPane().add(spinField_1);
+		JComboBox comboJour = new JComboBox();
+		comboJour.setBounds(10, 50, 97, 22);
+		comboJour.addItem("Lundi");
+		comboJour.addItem("Mardi");
+		comboJour.addItem("Mercredi");
+		comboJour.addItem("Jeudi");
+		comboJour.addItem("Vendredi");
+		frame.getContentPane().add(comboJour);  /** Adding the comobox to the contentPane  */
 		
-		JButton btnNewButton = new JButton("Confirm");
-		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		btnNewButton.setBounds(162, 104, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		JLabel lblHour = new JLabel("Hour");
+		lblHour.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+		lblHour.setBounds(147, 54, 46, 14);
+		frame.getContentPane().add(lblHour);   /** Adding the label to the contentPane  */
+		
+		JLabel lblMinutes = new JLabel("Minutes");
+		lblMinutes.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+		lblMinutes.setBounds(288, 54, 46, 14);
+		frame.getContentPane().add(lblMinutes);    /** Adding the label to the contentPane  */
+		
+		JSpinField spinHour = new JSpinField();
+		spinHour.setBounds(192, 52, 30, 20);
+		frame.getContentPane().add(spinHour);    /** Adding the spinField to the contentPane  */
+		
+		JSpinField spinMinutes = new JSpinField();
+		spinMinutes.setBounds(344, 52, 30, 20);
+		frame.getContentPane().add(spinMinutes);      /** Adding the spinfield to the contentPane  */
+		
+		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		btnConfirm.setBounds(162, 104, 89, 23);
+		frame.getContentPane().add(btnConfirm);      /** Adding the button to the contentPane  */
 	}
 }

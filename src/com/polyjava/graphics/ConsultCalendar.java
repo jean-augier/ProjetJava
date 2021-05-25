@@ -14,50 +14,41 @@ import java.awt.event.MouseEvent;
 public class ConsultCalendar {
 
 	public JFrame frame;
-	private JTable table;
+	private JTable calendarTable;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultCalendar window = new ConsultCalendar();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
 	public ConsultCalendar() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initializer
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("                                               Planning");
-		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+		frame = new JFrame();            /** Setting the frame to the contentPane  */
+		
+		frame.setBounds(100, 100, 450, 300);     /** Setting the bounds(x,y,length,width) of the frame  */
+		
+		frame.setResizable(false);  /** Setting the resizability of the frame  */
+		
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));  /** Setting the borderLayout to the contentPane  */
+		
+		JLabel lblPlanning = new JLabel("                                               Planning");
+		lblPlanning.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		frame.getContentPane().add(lblPlanning, BorderLayout.NORTH);    /** Adding the label to the north of the contentPane  */
 		
 		JScrollPane scrollPane = new JScrollPane();
-		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);   /** Adding the scrollPane to the center of the contentPane  */
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		calendarTable = new JTable();     /** Creating  a JTable  */
+		 /** Setting the model of the jTable 
+		  * 
+		  *  @param 2D array : 1st Array of objects - 2nd Array of header Strings
+		  */
+		calendarTable.setModel(new DefaultTableModel(      
 			new Object[][] {
 				{null, null, null, null, null},
 				{null, null, null, null, null},
@@ -95,14 +86,22 @@ public class ConsultCalendar {
 				return columnTypes[columnIndex];
 			}
 		});
-	       table.addMouseListener(new java.awt.event.MouseAdapter() {
+		 /** Actionlistener method to the mouse listener
+		  * 
+		  *  @param  mouse waited event
+		  */
+	       calendarTable.addMouseListener(new java.awt.event.MouseAdapter() {
 	            public void mouseClicked(java.awt.event.MouseEvent evt) {
 	                jTableMouseClicked(evt);
 	            }
 	        });
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(calendarTable);
 	}
-
+    /** 
+     * Action listener to wait clicks on current jtable
+     * 
+     * @param ActionEvent evt (waited event)
+     */
 	protected void jTableMouseClicked(MouseEvent evt) {
 		AddModifCalendar add = new AddModifCalendar();
 		add.frame.setVisible(true);

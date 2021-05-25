@@ -15,91 +15,92 @@ import javax.swing.JButton;
 public class AddModifEmp {
 
 	public JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField firstName;
+	private JTextField lastName;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddModifEmp window = new AddModifEmp();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
+	 * Constructor
 	 */
 	public AddModifEmp() {
 		initialize();
 	}
-
 	/**
-	 * Initialize the contents of the frame.
+	 * Initializer
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.getContentPane().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
-		frame.getContentPane().setLayout(null);
-		JLabel lblNewLabel = new JLabel("Employee");
-		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		lblNewLabel.setBounds(179, 11, 76, 20);
-		frame.getContentPane().add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(96, 42, 86, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		frame = new JFrame();      /** Creating the frame of our window */
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(96, 73, 86, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		frame.setResizable(false);    /** Setting resizability  */
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(96, 104, 86, 22);		
-		frame.getContentPane().add(comboBox);
+		frame.getContentPane().setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));   /** Setting font  */
 		
-		JLabel lblNewLabel_1 = new JLabel("First name");
-		lblNewLabel_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(10, 45, 76, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		frame.getContentPane().setLayout(null);    /** Setting the free layout  */
 		
-		JLabel lblNewLabel_2 = new JLabel("Last name");
-		lblNewLabel_2.setBounds(10, 76, 64, 14);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel lblEmployee = new JLabel("Employee");       
 		
-		JLabel lblNewLabel_3 = new JLabel("Department");
-		lblNewLabel_3.setBounds(10, 108, 64, 14);
-		frame.getContentPane().add(lblNewLabel_3);
+		lblEmployee.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		
-		JButton btnNewButton = new JButton("Confirm");
-		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		btnNewButton.setBounds(164, 144, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		lblEmployee.setBounds(179, 11, 76, 20);
 		
-		JButton btnNewButton_1 = new JButton("Planning");
-		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(263, 72, 89, 23);
-		btnNewButton_1.addActionListener(new java.awt.event.ActionListener() {
+		frame.getContentPane().add(lblEmployee);    /** Adding the label to the contentPane  */
+		
+		firstName = new JTextField();
+		firstName.setBounds(96, 42, 86, 20);
+		frame.getContentPane().add(firstName);       /** Adding the textfield to the contentPane  */
+		firstName.setColumns(10);
+		
+		lastName = new JTextField();
+		lastName.setBounds(96, 73, 86, 20);
+		frame.getContentPane().add(lastName);     /** Adding the textfield to the contentPane  */
+		lastName.setColumns(10);
+		
+		JComboBox comboDepartment = new JComboBox();
+		comboDepartment.setBounds(96, 104, 86, 22);		
+		frame.getContentPane().add(comboDepartment);         /** Adding the comboBox to the contentPane  */
+		
+		JLabel lblFirstName = new JLabel("First name");
+		lblFirstName.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+		lblFirstName.setBounds(10, 45, 76, 14);
+		frame.getContentPane().add(lblFirstName);        /** Adding the label to the contentPane  */
+		
+		JLabel lblLastName = new JLabel("Last name");
+		lblLastName.setBounds(10, 76, 64, 14);
+		frame.getContentPane().add(lblLastName);         /** Adding the label to the contentPane  */
+		
+		JLabel lblDepartment = new JLabel("Department");
+		lblDepartment.setBounds(10, 108, 64, 14);
+		frame.getContentPane().add(lblDepartment);         /** Adding the label to the contentPane  */
+		
+		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		btnConfirm.setBounds(164, 144, 89, 23);
+		frame.getContentPane().add(btnConfirm);          /** Adding the button to the contentPane  */
+		
+		JButton btnDepartment = new JButton("Planning");
+		btnDepartment.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+		btnDepartment.setBounds(263, 72, 89, 23);                    
+	
+	    /** 
+	     * Action listener for Checking planning employee button
+	     * 
+	     * @param ActionEvent evt (waited event)
+	     */
+		btnDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btnEmpActionPerformed(evt);
+            	btnPlanningActionPerformed(evt);
             }
         });
-		frame.getContentPane().add(btnNewButton_1);
+		frame.getContentPane().add(btnDepartment);
 		frame.setBounds(100, 100, 450, 216);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
-
-	protected void btnEmpActionPerformed(ActionEvent evt) {
+    /** 
+     * Action listener to check Planning button
+     * 
+     * @param ActionEvent evt (waited event)
+     */
+	protected void btnPlanningActionPerformed(ActionEvent evt) {
 		ConsultCalendar calendar  = new ConsultCalendar();
 		calendar.frame.setVisible(true);
 	}

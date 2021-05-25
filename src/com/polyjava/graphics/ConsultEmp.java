@@ -15,52 +15,43 @@ public class ConsultEmp {
 
 	public JFrame frame;
 	private JTable table;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultEmp window = new ConsultEmp();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
+	
+	
+	
+/**
+ * Constructor
+ */
 	public ConsultEmp() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initializer
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setResizable(false);
+		frame = new JFrame();     /** Setting the frame of the windows */
+		frame.setBounds(100, 100, 450, 300);     /** Setting the bounds of the frame */
+		frame.setResizable(false);        /** Setting the resizability of the frame */
 
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);     /** Setting the close option to the window's frame */
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));  /** Setting the borderLayout to the frame's contentPane */
 		
-		JLabel lblNewLabel = new JLabel("                                               Employee");
-		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+		JLabel lblEmployee = new JLabel("                                               Employee");
+		lblEmployee.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
+		frame.getContentPane().add(lblEmployee, BorderLayout.NORTH);  /** Setting the north borderLayout to the label */
 		
-		JButton btnNewButton = new JButton("Delete selected employee");
-		frame.getContentPane().add(btnNewButton, BorderLayout.SOUTH);
+		JButton btnSupprimer = new JButton("Delete selected employee");
+		frame.getContentPane().add(btnSupprimer, BorderLayout.SOUTH);   /** Setting the south borderLayout to the label */
 		
 		JScrollPane scrollPane = new JScrollPane();
-		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);   /** Setting the center borderLayout to the label */
 		
 		table = new JTable();
+	    /** 
+	     * Setting the model of jtable for current window
+	     * 
+	     * @param 2D array ( Objects array and Header strings array for the table )
+	     */
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null},
@@ -104,6 +95,9 @@ public class ConsultEmp {
 				return columnTypes[columnIndex];
 			}
 		});
+		/**
+		 * Put the jtable in scrollPane
+		 */
 		scrollPane.setViewportView(table);
 	}
 
