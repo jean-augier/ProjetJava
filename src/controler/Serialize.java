@@ -98,6 +98,19 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
+	//to serialize Company
+	public void SerializeCompany(Company cmpy) throws IOException
+	{
+		// File initialize
+		fos = new FileOutputStream(getFileName());
+		oos = new ObjectOutputStream(fos);
+		
+		oos.writeObject(cmpy);
+		
+		oos.close();
+		fos.close();
+	}
+	
 	//to deserialize CheckInOut
 	public CheckInOut deserializeCheck() throws IOException, ClassNotFoundException
 	{
@@ -179,5 +192,19 @@ public class Serialize implements Serializable{
 		ois.close();
 		
 		return DepartmentList;
+	}
+	
+	//to deserialize Department
+	public Company deserializeCompany() throws IOException, ClassNotFoundException
+	{
+		fis = new FileInputStream(getFileName());
+		ois = new ObjectInputStream(fis);
+		
+		Company cmpy;
+		cmpy = (Company) ois.readObject();
+		ois.close();
+		fis.close();
+		
+		return cmpy;
 	}
 }
