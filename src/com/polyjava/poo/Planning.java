@@ -4,57 +4,97 @@ import java.time.LocalTime;
 
 public class Planning {
 
-	private String Jour_planning;
+	private String dayPlanning;
 
-	private LocalTime Heure_Debut;
+	private LocalTime startHour;
 	
-	private LocalTime Heure_Fin;
+	private LocalTime endHour;
 
-	private String Type_travail;
+	private String taskType;
 
-	public Planning(String jour_planning, LocalTime heure_Debut, LocalTime heure_Fin, String type_travail) {
+	/**
+	 * Constructor
+	 * @param day_planning
+	 * @param start_Hour
+	 * @param end_Hour
+	 * @param task_Type
+	 */
+	public Planning(String day_planning, LocalTime start_Hour, LocalTime end_Hour, String task_Type) {
 		super();
-		Jour_planning = jour_planning;
-		Heure_Debut = heure_Debut;
-		Heure_Fin = heure_Fin;
-		Type_travail = type_travail;
+		dayPlanning = day_planning;
+		startHour = start_Hour;
+		endHour = end_Hour;
+		taskType = task_Type;
 	}
 
+	/**
+	 * 
+	 * @return dayPlanning
+	 */
 	public String getJour_planning() {
-		return Jour_planning;
+		return dayPlanning;
 	}
 
-	public void setJour_planning(String jour_planning) {
-		Jour_planning = jour_planning;
+	/**
+	 * 
+	 * @param day_planning
+	 */
+	public void setJour_planning(String day_planning) {
+		dayPlanning = day_planning;
 	}
 
+	/**
+	 * 
+	 * @return startHour
+	 */
 	public LocalTime getHeure_Debut() {
-		return Heure_Debut;
+		return startHour;
 	}
 
-	public void setHeure_Debut(LocalTime heure_Debut) {
-		Heure_Debut = heure_Debut;
+	/**
+	 * 
+	 * @param start_Hour
+	 */
+	public void setHeure_Debut(LocalTime start_Hour) {
+		startHour = start_Hour;
 	}
 
+	/**
+	 * 
+	 * @return endHour
+	 */
 	public LocalTime getHeure_Fin() {
-		return Heure_Fin;
+		return endHour;
 	}
 
-	public void setHeure_Fin(LocalTime heure_Fin) {
-		Heure_Fin = heure_Fin;
+	/**
+	 * 
+	 * @param end_Hour
+	 */
+	public void setHeure_Fin(LocalTime end_Hour) {
+		endHour = end_Hour;
 	}
+	
+	/**
+	 * 
+	 * @return taskType
+	 */
 
 	public String getType_travail() {
-		return Type_travail;
+		return taskType;
 	}
 
-	public void setType_travail(String type_travail) {
-		Type_travail = type_travail;
+	/**
+	 * 
+	 * @param task_Type
+	 */
+	public void setType_travail(String task_Type) {
+		taskType = task_Type;
 	}
 
 	@Override
 	public String toString() {
-		return "Planning [Jour_planning=" + Jour_planning + ", Heure_Debut=" + Heure_Debut + ", Heure_Fin=" + Heure_Fin
-				+ ", Type_travail=" + Type_travail + "]";
+		return "Planning [day_Planning=" + dayPlanning + ", start_Hour=" + startHour + ", end_Hour=" + endHour
+				+ ", task_Type=" + taskType + "]";
 	}
 }

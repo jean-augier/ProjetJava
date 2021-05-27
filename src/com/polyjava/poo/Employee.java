@@ -18,6 +18,9 @@ public class Employee extends Person implements Serializable{
 	
 	private ArrayList<Planning> PlanningList;
 
+	/**
+	 * Constructor
+	 */
 	public  Employee() 
 	{
 		counter++;
@@ -29,6 +32,10 @@ public class Employee extends Person implements Serializable{
 		setDepartment(null);
 	}
 
+	/**
+	 * Constructor
+	 * @param employee
+	 */
 	public  Employee(Employee employee) 
 	{
 		counter++;
@@ -40,11 +47,19 @@ public class Employee extends Person implements Serializable{
 		setDepartment(employee.getDepartment());
 	}
 
+	/**
+	 * 
+	 * @return idEmployee
+	 */
 	public int getIdEmployee() 
 	{
 		return idEmployee;
 	}
 
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setIdEmployee(int id)
 	{
 		if (id > 0)
@@ -57,59 +72,110 @@ public class Employee extends Person implements Serializable{
 		}
 	}
 
+	/**
+	 * 
+	 * @return startOfShift
+	 */
 	public LocalTime getStartOfShift() 
 	{
 		return startOfShift;
 	}
 
+	/**
+	 * 
+	 * @param actualTime
+	 */
 	public void setStartOfShift(LocalTime actualTime) 
 	{
 		startOfShift = actualTime;
 	}
 
+	/**
+	 * 
+	 * @return endOfShift
+	 */
 	public LocalTime getEndOfShift() {
 		return endOfShift;
 	}
 
+	/**
+	 * 
+	 * @param actualTime
+	 */
 	public void setEndOfShift(LocalTime actualTime) {
 		endOfShift = actualTime;
 	}
 	
+	/**
+	 * 
+	 * @return department
+	 */
 	public Department getDepartment()
 	{
 		return department;
 	}
 	
+	/**
+	 * 
+	 * @param dpt
+	 */
 	public void setDepartment(Department dpt)
 	{
 		department = dpt;
 	}
 
+	/**
+	 * 
+	 * @return counter
+	 */
 	public static int getCounter() {
 		return counter;
 	}
 
+	/**
+	 * 
+	 * @param newCounter
+	 */
 	public void setCounter(int newCounter) 
 	{
 		counter = newCounter;
 	}
 	
+	/**
+	 * 
+	 * @return Planninglist
+	 */
 	public ArrayList<Planning> getPlanningList() {
 		return PlanningList;
 	}
 
+	/**
+	 * 
+	 * @param planningList
+	 */
 	public void setPlanningList(ArrayList<Planning> planningList) {
 		PlanningList = planningList;
 	}
 
+	/**
+	 * 
+	 * @param p
+	 */
 	public void addPlanning(Planning p) {
 		this.PlanningList.add(p);
 	}
 	
+	/**
+	 * 
+	 * @param p
+	 */
 	public void removePlanning(Planning p) {
 		this.PlanningList.remove(p);
 	}
 
+	/**
+	 * @return msg
+	 */
 	public String toString()
 	{
 		String msg = super.toString() + getDepartment();
