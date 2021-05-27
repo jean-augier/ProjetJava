@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-public class Employee extends Person implements Serializable{
+public class Employee extends Person{
 
 	private int idEmployee;
 

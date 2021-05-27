@@ -1,9 +1,10 @@
 package com.polyjava.poo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Time {
+public class Time implements Serializable{
 
 	private LocalDate date;
 

@@ -2,7 +2,7 @@ package com.polyjava.poo;
 
 import java.io.Serializable;
 
-public class CheckInOut extends Time implements Serializable{
+public class CheckInOut extends Time{
 	
 	private Employee EmployeeCheck;
 
