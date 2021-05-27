@@ -1,8 +1,9 @@
 package com.polyjava.poo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Department {
+public class Department implements Serializable{
 
 	private int idDepartment;
 
@@ -17,10 +18,9 @@ public class Department {
 	 */
 	public  Department() {
 		counter ++;
+		EmployeeList = new ArrayList<Employee>();
 		setIdDepartment(counter);
-		EmployeeList = null;
 		setNameDepartment(null);
-		setEmployeeList(null);
 	}
 
 	/**
@@ -118,6 +118,7 @@ public class Department {
 	 */
 	public void addEmployee(Employee newEmployee) {
 		EmployeeList.add(newEmployee);
+		newEmployee.setDepartment(this);
 	}
 
 	/**

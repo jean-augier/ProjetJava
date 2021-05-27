@@ -1,9 +1,10 @@
 package com.polyjava.poo;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Company {
+public class Company implements Serializable {
 
 	private String nameCompany;
 
