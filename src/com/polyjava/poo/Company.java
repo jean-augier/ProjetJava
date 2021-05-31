@@ -10,6 +10,10 @@ public class Company implements Serializable {
 
 	private ArrayList<Department> DepartmentList;
 
+	public Company(String nameCompany) {
+		setNameCompany(nameCompany);
+		setDepartmentList(new ArrayList<Department>());
+	}
 	
 	public Company(String nameCompany, ArrayList<Department> departmentList) {
 		this.nameCompany = nameCompany;
