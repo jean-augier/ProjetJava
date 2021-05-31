@@ -20,6 +20,11 @@ public class Company implements Serializable {
 		DepartmentList = departmentList;
 	}
 	
+	public Company() {
+		super();
+		DepartmentList = new ArrayList<Department>();
+	}
+
 	/**
 	 * 
 	 * @return nameCompany

@@ -18,27 +18,11 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 
-//crud empoye , historic générales et historic générales , config 
+//crud empoye , historic gï¿½nï¿½rales et historic gï¿½nï¿½rales , config 
 public class JGraphicMainServer extends javax.swing.JFrame {
 
 	private JLabel dateToday= new JLabel();
 	private JLabel dateHourToday= new JLabel();
-	
-/**
- * Main of application
- */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JGraphicMainServer window = new JGraphicMainServer();
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Constructor

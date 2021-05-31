@@ -8,6 +8,8 @@ import java.time.*;
 public final class Maintest {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		Company cmpy = new Company();
+		
 		Employee e = new Employee();
 		e.setName("Jean");
 		e.setSurname("Charles");
@@ -18,15 +20,15 @@ public final class Maintest {
 		dp.setNameDepartment("Maths");
 		dp.addEmployee(e);
 		
-		CheckInOut check = new CheckInOut(e);
-		check.setDate(LocalDate.now());
-		check.setHour(LocalTime.now());
+		System.out.println(dp);
 		
-		Serialize ser = new Serialize("test.txt");
+//		cmpy.addDepartement(dp);
 		
-		ser.serializeCheck(check);;
-		System.out.println("Ser fais");
-		System.out.println(ser.deserializeCheck());
+//		Serialize ser = new Serialize("test.txt");
+		
+//		ser.SerializeCompany(cmpy);
+//		System.out.println("Ser fais");
+//		System.out.println(ser.deserializeCheck());
 		
 	}
 
