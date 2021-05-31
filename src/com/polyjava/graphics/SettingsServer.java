@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class Settings extends MoveJFrame {
+public class SettingsServer extends MoveJFrame {
 
 	private JFrame frame;
 	private JTextField textIPadr;
@@ -18,7 +18,7 @@ public class Settings extends MoveJFrame {
 	/**
 	 * Constructor
 	 */
-	public Settings() {
+	public SettingsServer() {
 		initialize();
 	}
 	/**
@@ -89,7 +89,7 @@ public class Settings extends MoveJFrame {
 	 */
 	protected void RtrnEmpActionPerformed(ActionEvent evt) {
 		dispose();
-		JGraphicMain mn = new JGraphicMain();
+		JGraphicMainServer mn = new JGraphicMainServer();
 		mn.setVisible(true);
 	}
 

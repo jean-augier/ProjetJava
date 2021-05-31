@@ -13,7 +13,9 @@ public class Department implements Serializable{
 
 	private static int counter;
 	
-	
+	/**
+	 * Constructor
+	 */
 	public  Department() {
 		counter ++;
 		EmployeeList = new ArrayList<Employee>();
@@ -21,22 +23,35 @@ public class Department implements Serializable{
 		setNameDepartment(null);
 	}
 
-
+	/**
+	 * 
+	 * @param employeeList
+	 */
 	public Department(ArrayList<Employee> employeeList) {
 		super();
 		EmployeeList = employeeList;
 	}
-
+	/**
+	 * 
+	 * @param nameDepartment	
+	 */
 	public Department(String nameDepartment) {
 		super();
 		this.nameDepartment = nameDepartment;
 	}
 	
-
+	/**
+	 * 
+	 * @return idDepartment
+	 */
 	public int getIdDepartment() {
 		return idDepartment;
 	}
-
+	
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setIdDepartment(int id) {
 		if (id > 0)
 		{
@@ -48,38 +63,68 @@ public class Department implements Serializable{
 		}
 	}
 	
+	/**
+	 * 
+	 * @return EmployeeList
+	 */
 	public ArrayList<Employee> getEmployeeList() {
 		return EmployeeList;
 	}
-
+	
+	/**
+	 * 
+	 * @param employeeList
+	 */
 	public void setEmployeeList(ArrayList<Employee> employeeList) {
 		EmployeeList = employeeList;
 	}
 	
+	/**
+	 * 
+	 * @return nameDepartment
+	 */
 	public String getNameDepartment() {
 		return nameDepartment;
 	}
 
+	/**
+	 * 
+	 * @param nameDepartment
+	 */
 	public void setNameDepartment(String nameDepartment) {
 		this.nameDepartment = nameDepartment;
 	}
 
-	
+	/**
+	 * 
+	 * @return counter
+	 */
 	public static int getCounter() {
 		return counter;
 	}
 
+	/**
+	 * 
+	 * @param newcounter
+	 */
 	public static void setCounter(int newcounter) {
 		Department.counter = newcounter;
 	}
 
 	
-
+	/**
+	 * 
+	 * @param newEmployee
+	 */
 	public void addEmployee(Employee newEmployee) {
 		EmployeeList.add(newEmployee);
 		newEmployee.setDepartment(this);
 	}
 
+	/**
+	 * 
+	 * @param employeeToDelete
+	 */
 	public void delEmployee(Employee employeeToDelete) {
 		if (!EmployeeList.remove(employeeToDelete))
 		{
@@ -89,7 +134,10 @@ public class Department implements Serializable{
 			EmployeeList.remove(employeeToDelete);
 		}
 	}
-
+	
+	/**
+	 * @return msg
+	 */
 	public String toString() {
 		String msg = getNameDepartment() + " " + getIdDepartment() + " ";
 		return msg;

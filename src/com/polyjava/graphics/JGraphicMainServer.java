@@ -18,8 +18,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 
-
-public class JGraphicMain extends javax.swing.JFrame {
+//crud empoye , historic générales et historic générales , config 
+public class JGraphicMainServer extends javax.swing.JFrame {
 
 	private JLabel dateToday= new JLabel();
 	private JLabel dateHourToday= new JLabel();
@@ -31,7 +31,7 @@ public class JGraphicMain extends javax.swing.JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JGraphicMain window = new JGraphicMain();
+					JGraphicMainServer window = new JGraphicMainServer();
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class JGraphicMain extends javax.swing.JFrame {
 	/**
 	 * Constructor
 	 */
-	public JGraphicMain() {
+	public JGraphicMainServer() {
 		initialize();
 	}
 	
@@ -81,16 +81,6 @@ public class JGraphicMain extends javax.swing.JFrame {
 		settingsBtn.setBounds(10, 168, 157, 23);
 		getContentPane().add(settingsBtn);
 		
-		JButton faqBtn = new JButton("FAQ");
-		faqBtn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
-		faqBtn.setBounds(446, 11, 89, 23);
-		getContentPane().add(faqBtn);
-		faqBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	faqBtnActionPerformed(evt);
-            }
-        });
-		
 		JButton quitBtn = new JButton("Quit");
 		quitBtn.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 		quitBtn.setBounds(446, 168, 89, 23);
@@ -107,28 +97,9 @@ public class JGraphicMain extends javax.swing.JFrame {
 		getContentPane().add(checkInOutBtn);
 		
 		JTextPane insertEmp = new JTextPane();
+		insertEmp.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 22));
 		insertEmp.setBounds(128, 89, 226, 40);
 		getContentPane().add(insertEmp);
-		
-		JButton btnConsultEMP = new JButton("Consult EMP");
-		btnConsultEMP.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
-		btnConsultEMP.setBounds(10, 13, 111, 23);
-		getContentPane().add(btnConsultEMP);
-		btnConsultEMP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btnConsultEMPActionPerformed(evt);
-            }
-        });
-		
-		JButton btnAddEmp = new JButton("Add EMP");
-		btnAddEmp.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
-		btnAddEmp.setBounds(10, 46, 111, 23);
-		getContentPane().add(btnAddEmp);
-		btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	btnAddEmpActionPerformed(evt);
-            }
-        });
 		
          addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -143,22 +114,8 @@ public class JGraphicMain extends javax.swing.JFrame {
      */
 	protected void settingsBtnActionPerformed(ActionEvent evt) {
 		dispose();
-		Settings settings = new Settings();
+		SettingsServer settings = new SettingsServer();
 		settings.setVisible(true);
-	}
-    /** 
-     * Action listener to  adding new employees button
-     * 
-     * @param ActionEvent evt (waited event)
-     */
-	protected void btnAddEmpActionPerformed(ActionEvent evt) {
-		AddModifEmp add = new AddModifEmp();
-		add.frame.setVisible(true);
-	}
-
-	protected void btnConsultEMPActionPerformed(ActionEvent evt) {
-		ConsultEmp consult = new ConsultEmp();
-		consult.frame.setVisible(true);
 	}
     /** 
      * Show current date method 
@@ -192,14 +149,6 @@ public class JGraphicMain extends javax.swing.JFrame {
     private void quitBtnActionPerformed(java.awt.event.ActionEvent evt) {
     		System.exit(0);
     	}
-    /** 
-     * Launching FAQ button action listener
-     */
-    private void faqBtnActionPerformed(java.awt.event.ActionEvent evt) {
-		dispose();
-		FAQ faq =new FAQ();
-		faq.setVisible(true);
-	}
     /** 
      * Auto launched method when opening current window
      */

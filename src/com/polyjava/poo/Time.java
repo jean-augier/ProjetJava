@@ -10,42 +10,80 @@ public class Time implements Serializable{
 
 	private LocalTime hour;
 
+	/**
+	 * Constructor
+	 */
 	public Time() {
 		date = LocalDate.now();
 		hour = LocalTime.now();
 	}
 
+	/**
+	 * Constructor
+	 * @param hour
+	 */
 	public Time(LocalTime hour) {
 		date = LocalDate.now();
 		this.hour = hour;
 	}
 
+	/**
+	 * Constructor
+	 * @param date
+	 */
 	public Time(LocalDate date) {
 		this.date = date;
 		hour = LocalTime.now();
 	}
+	
+	/**
+	 * Constructor
+	 * @param hour
+	 * @param date
+	 */
 
 	public Time(LocalTime hour, LocalDate date ) {
 		this.date = date;
 		this.hour = hour;
 	}
 
+	/**
+	 * 
+	 * @return date
+	 */
 	public LocalDate getDate() {
 		return date;
 	}
 
+	/**
+	 * 
+	 * @param date
+	 */
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
+	/**
+	 * 
+	 * @return hour
+	 */
 	public LocalTime getHour() {
 		return hour;
 	}
 
+	/**
+	 * 
+	 * @return 
+	 */
 	public LocalTime getRoundedHour() {
 		return this.getRoundedHour(this.hour);
 	}
 
+	/**
+	 * 
+	 * @param hour
+	 * @return rounded
+	 */
 	public LocalTime getRoundedHour(LocalTime hour) {
 		int newMinute = hour.getMinute();
 		int newHour = hour.getHour();
@@ -79,10 +117,17 @@ public class Time implements Serializable{
 		return rounded;
 	}
 
+	/**
+	 * 
+	 * @param hour
+	 */
 	public void setHour(LocalTime hour) {
 		this.hour = hour;
 	}
 
+	/**
+	 * 
+	 */
 	public String toString() {
 		return hour.getHour() + ":" + hour.getMinute() + ", rounded : " + getRoundedHour(getHour()).getHour() + ":" + getRoundedHour(getHour()).getMinute() + ", date : " + date.toString();
 	}
