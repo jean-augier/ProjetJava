@@ -1,10 +1,21 @@
 package com.polyjava.poo;
 
 import java.io.*;
+import java.net.SocketException;
 
 public class TCPClient extends TCPClientBuilder implements Runnable
 {
 	private Company company; //company to received from server
+	
+	public TCPClient() throws SocketException
+	{
+		super();
+	}
+	
+	public TCPClient(String ip, int port) throws SocketException
+	{
+		super(ip,port);
+	}
 	
 	public void run()
 	{

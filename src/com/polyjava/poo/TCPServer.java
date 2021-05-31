@@ -13,6 +13,12 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 		setCompany(null);
 	}
 	
+	public TCPServer(String ip, int port) throws SocketException
+	{
+		super(ip, port);
+		setCompany(null);
+	}
+	
 	public TCPServer(Company company) throws SocketException
 	{
 		super();

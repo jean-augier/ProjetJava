@@ -8,15 +8,26 @@ public class TCPClientBuilder
 	protected Socket s; 
 	protected InetSocketAddress isA;
 	
+	protected int port;
+	protected String ip;
+
 	TCPClientBuilder() 
 	{ 
 		s = null; 
 		isA = null; 
 	}
 	
+	TCPClientBuilder(String ip, int port) throws SocketException
+	{ 
+		setIp(ip);
+		setPort(port);
+		setS(null);
+		setisA(null);
+	}
+	
 	public void setSocket() throws IOException
 	{
-		setisA(new InetSocketAddress("localhost",8080));  
+		setisA(new InetSocketAddress(getHost(),getPort()));  
 		setS(new Socket(isA.getHostName(), isA.getPort()));
 	}
 	
@@ -39,6 +50,22 @@ public class TCPClientBuilder
 		isA = address;
 	}
 	
+	public int getPort() {
+		return port;
+	}
+	
+	public void setPort(int port) {
+		this.port = port;
+	}
+	
+	public String getHost() {
+		return ip;
+	}
+	
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
 	public Socket getS()
 	{
 		return s;
