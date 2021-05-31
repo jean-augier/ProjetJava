@@ -24,13 +24,14 @@ public class TestTCP {
 		Company company = new Company("WESHBANK");
 		company.addDepartement(dp);
 		
-		TCPClient client = new TCPClient();
-		TCPServer server = new TCPServer();
+		TCPClient client = new TCPClient("127.0.0.1",8080);
+		TCPServer server = new TCPServer("127.0.0.1",8080);
 		
 		server.setCompany(company);
 
 		Thread t1 = new Thread(client);
 		Thread t2 = new Thread(server);
+		
 		
 		t1.start();
 		t2.start();

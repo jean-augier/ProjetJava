@@ -10,6 +10,9 @@ public class TCPServerBuilder
 	
 	protected InetSocketAddress isA; // the address 
 	
+	protected int port;
+	protected String ip;
+
 	public TCPServerBuilder() throws SocketException 
 	{ 
 		setSS(null);
@@ -17,9 +20,18 @@ public class TCPServerBuilder
 		setisA(null);
 	}
 	
+	public TCPServerBuilder(String ip, int port) throws SocketException 
+	{ 
+		setIp(ip);
+		setPort(port);
+		setSS(null);
+		setS(null);
+		setisA(null);
+	}
+	
 	public void setSockets() throws IOException
 	{
-		setisA(new InetSocketAddress("localhost",8080)); //voir pour passer le port en param
+		setisA(new InetSocketAddress(ip,port));
 		setSS(new ServerSocket(getisA().getPort()));
 	}
 	
@@ -61,5 +73,21 @@ public class TCPServerBuilder
 	public InetSocketAddress getisA()
 	{
 		return isA;
+	}
+	
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
 }

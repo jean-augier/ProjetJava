@@ -6,15 +6,27 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.net.SocketException;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+
+import controler.SetUp;
 
 public class SettingsServer extends MoveJFrame {
 
 	private JFrame frame;
 	private JTextField textIPadr;
 	private JTextField textPort;
+	
+	private JLabel lblIPAdresse;
+	JLabel lblPort;
+	JLabel lblTitle;
+	
+	JButton btnConfirm;
+	JButton btnReturn;
+	
 	/**
 	 * Constructor
 	 */
@@ -36,19 +48,20 @@ public class SettingsServer extends MoveJFrame {
 		 
 		 getContentPane().setLayout(null);    /** Setting the free layout to the frame */
 		
-		JLabel lblIPAdresse = new JLabel("IP Adresse");
+		lblIPAdresse = new JLabel("IP Adresse");
 		lblIPAdresse.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		lblIPAdresse.setBounds(10, 55, 71, 14);
 		getContentPane().add(lblIPAdresse);  /** Adding a label to the contentPane */
 		
 		
-		JLabel lblPort = new JLabel("Port");
+		
+		lblPort = new JLabel("Port");
 		lblPort.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		lblPort.setBounds(225, 56, 28, 14);
 		getContentPane().add(lblPort);      /** Adding a label to the contentPane */
 		
 		
-		JLabel lblTitle = new JLabel("Advanced Settings");
+		lblTitle = new JLabel("Advanced Settings");
 		lblTitle.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 16));
 		lblTitle.setBounds(154, 11, 153, 20);
 		getContentPane().add(lblTitle);  /** Adding a label to the contentPane */
@@ -66,13 +79,32 @@ public class SettingsServer extends MoveJFrame {
 		textPort.setColumns(10);
 		
 		
-		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm = new JButton("Confirm");
 		btnConfirm.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		btnConfirm.setBounds(175, 85, 89, 23);
 		getContentPane().add(btnConfirm);
 		
+		btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	try 
+            	{
+            		System.out.println(SetUp.setServerConfig(textIPadr.getText(),Integer.parseInt(textPort.getText())));
+            		SetUp.setClientConfig(textIPadr.getText(),Integer.parseInt(textPort.getText()));
+            		RtrnEmpActionPerformed(evt);
+            	} 
+            	catch (NumberFormatException e) 
+            	{
+            		e.printStackTrace();
+            	} 
+            	catch (SocketException e) 
+            	{
+            		e.printStackTrace();
+            	}            
+            }
+		});
 		
-		JButton btnReturn = new JButton("Return");
+		
+		btnReturn = new JButton("Return");
 		btnReturn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		btnReturn.setBounds(355, 0, 89, 23);
 		getContentPane().add(btnReturn);  /** Adding a return button the contentPane */
