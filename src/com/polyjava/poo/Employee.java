@@ -30,6 +30,7 @@ public class Employee extends Person{
 		setStartOfShift(null);
 		setEndOfShift(null);
 		setDepartment(null);
+		PlanningList = new ArrayList<Planning>();
 	}
 
 	/**
@@ -45,6 +46,7 @@ public class Employee extends Person{
 		setStartOfShift(employee.getStartOfShift());
 		setEndOfShift(employee.getEndOfShift());
 		setDepartment(employee.getDepartment());
+		PlanningList = new ArrayList<Planning>();
 	}
 
 	/**

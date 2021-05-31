@@ -1,8 +1,9 @@
 package com.polyjava.poo;
 
 import java.time.LocalTime;
+import java.io.*;
 
-public class Planning {
+public class Planning implements Serializable{
 
 	private String dayPlanning;
 

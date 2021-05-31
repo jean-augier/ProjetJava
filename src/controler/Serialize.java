@@ -111,6 +111,19 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
+	//to serialize Planning
+//	public void SerializePlanning(Planning planning) throws IOException
+//	{
+//		// File initialize
+//		fos = new FileOutputStream(getFileName());
+//		oos = new ObjectOutputStream(fos);
+//		
+//		oos.writeObject(planning);
+//		
+//		oos.close();
+//		fos.close();
+//	}
+	
 	//to deserialize CheckInOut
 	public CheckInOut deserializeCheck() throws IOException, ClassNotFoundException
 	{
@@ -194,7 +207,7 @@ public class Serialize implements Serializable{
 		return DepartmentList;
 	}
 	
-	//to deserialize Department
+	//to deserialize Company
 	public Company deserializeCompany() throws IOException, ClassNotFoundException
 	{
 		fis = new FileInputStream(getFileName());
@@ -207,4 +220,18 @@ public class Serialize implements Serializable{
 		
 		return cmpy;
 	}
+	
+	//to deserialize Planning
+//	public Planning deserializePlanning() throws IOException, ClassNotFoundException
+//	{
+//		fis = new FileInputStream(getFileName());
+//		ois = new ObjectInputStream(fis);
+//		
+//		Planning plan;
+//		plan = (Planning) ois.readObject();
+//		ois.close();
+//		fis.close();
+//		
+//		return plan;
+//	}
 }

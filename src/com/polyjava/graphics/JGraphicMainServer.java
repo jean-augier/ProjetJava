@@ -11,19 +11,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.Timer;
 
+import com.polyjava.poo.*;
 
-import javax.swing.JLabel;
+import controler.*;
+
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JTextPane;
 
 //crud empoye , historic g�n�rales et historic g�n�rales , config 
 public class JGraphicMainServer extends javax.swing.JFrame {
 
 	private JLabel dateToday= new JLabel();
 	private JLabel dateHourToday= new JLabel();
-
+	JTextField insertEmp;
 	/**
 	 * Constructor
 	 */
@@ -78,9 +78,19 @@ public class JGraphicMainServer extends javax.swing.JFrame {
 		JButton checkInOutBtn = new JButton("CheckInOut");
 		checkInOutBtn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 14));
 		checkInOutBtn.setBounds(399, 89, 124, 40);
+		checkInOutBtn.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	if(insertEmp.getText() == null) {
+		    		System.out.println("Remplir la zone de texte");
+		    	}else {
+			        ControllerMain.CheckInOut(insertEmp.getText());
+		    	}
+		    }
+		});
 		getContentPane().add(checkInOutBtn);
 		
-		JTextPane insertEmp = new JTextPane();
+		insertEmp = new JTextField();
 		insertEmp.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 22));
 		insertEmp.setBounds(128, 89, 226, 40);
 		getContentPane().add(insertEmp);
