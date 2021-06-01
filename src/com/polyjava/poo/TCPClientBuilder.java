@@ -1,9 +1,9 @@
 package com.polyjava.poo;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.*;
 
-public class TCPClientBuilder 
+public class TCPClientBuilder implements Serializable
 {
 	protected Socket s; 
 	protected InetSocketAddress isA;

@@ -11,8 +11,7 @@ import java.net.SocketException;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-
-import controler.SetUp;
+import controler.*;
 
 public class SettingsServer extends MoveJFrame {
 
@@ -88,7 +87,7 @@ public class SettingsServer extends MoveJFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	try 
             	{
-            		System.out.println(SetUp.setServerConfig(textIPadr.getText(),Integer.parseInt(textPort.getText())));
+            		SetUp.setServerConfig(textIPadr.getText(),Integer.parseInt(textPort.getText()));
             		SetUp.setClientConfig(textIPadr.getText(),Integer.parseInt(textPort.getText()));
             		RtrnEmpActionPerformed(evt);
             	} 

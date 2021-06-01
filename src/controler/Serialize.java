@@ -111,6 +111,19 @@ public class Serialize implements Serializable{
 		fos.close();
 	}
 	
+	//to serialize Company
+	public void SerializeTCPServer(TCPServer server) throws IOException
+	{
+		// File initialize
+		fos = new FileOutputStream(getFileName());
+		oos = new ObjectOutputStream(fos);
+		
+		oos.writeObject(server);
+		
+		oos.close();
+		fos.close();
+	}
+	
 	//to serialize Planning
 //	public void SerializePlanning(Planning planning) throws IOException
 //	{
@@ -220,6 +233,20 @@ public class Serialize implements Serializable{
 		
 		return cmpy;
 	}
+	
+	//to deserialize TCPServer
+		public TCPServer deserializeTCPServer() throws IOException, ClassNotFoundException
+		{
+			fis = new FileInputStream(getFileName());
+			ois = new ObjectInputStream(fis);
+			
+			TCPServer server;
+			server = (TCPServer) ois.readObject();
+			ois.close();
+			fis.close();
+			
+			return server;
+		}
 	
 	//to deserialize Planning
 //	public Planning deserializePlanning() throws IOException, ClassNotFoundException
