@@ -1,12 +1,15 @@
 package controler;
 
 import java.awt.EventQueue;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import com.polyjava.graphics.JGraphicMainServer;
-import com.polyjava.poo.Company;
+import com.polyjava.poo.*;
 
 public class ControllerMain {
 	static Company company;
+	static ArrayList<CheckInOut> checkList;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -18,6 +21,9 @@ public class ControllerMain {
 					Serialize ser = new Serialize("test.txt");
 					company = ser.deserializeCompany();
 					
+					Serialize serCheck = new Serialize("checkinout.txt");
+					checkList = serCheck.DeserializeCheckInOutList();
+					
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,6 +33,24 @@ public class ControllerMain {
 	}
 	
 	public static boolean CheckInOut(String idEmp) {
-		return CheckInOutController.createCheckInOut(idEmp, company);
+		try {
+			CheckInOut check = CheckInOutController.createCheckInOut(idEmp, company);
+			checkList.add(check);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	
+	public static void CloseWindow() {
+		Serialize ser = new Serialize("test.txt");
+		Serialize serCheck = new Serialize("checkinout.txt");
+		try {
+			ser.SerializeCompany(company);
+			serCheck.serializeCheckList(checkList);
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
 	}
 }
