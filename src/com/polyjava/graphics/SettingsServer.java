@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.SocketException;
 
 import javax.swing.JTextField;
@@ -87,18 +88,21 @@ public class SettingsServer extends MoveJFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	try 
             	{
-            		SetUp.setServerConfig(textIPadr.getText(),Integer.parseInt(textPort.getText()));
-            		SetUp.setClientConfig(textIPadr.getText(),Integer.parseInt(textPort.getText()));
+            		SetUp config = new SetUp();
+            		try 
+            		{
+						config.SaveConfig(textIPadr.getText(), Integer.parseInt(textPort.getText()));
+					}
+            		catch (IOException e) 
+            		{
+						e.printStackTrace();
+					}
             		RtrnEmpActionPerformed(evt);
             	} 
             	catch (NumberFormatException e) 
             	{
             		e.printStackTrace();
-            	} 
-            	catch (SocketException e) 
-            	{
-            		e.printStackTrace();
-            	}            
+            	}           
             }
 		});
 		

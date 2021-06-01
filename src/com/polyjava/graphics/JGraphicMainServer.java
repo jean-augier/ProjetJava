@@ -83,9 +83,12 @@ public class JGraphicMainServer extends javax.swing.JFrame {
 		checkInOutBtn.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		    	if(insertEmp.getText() == null) {
+		    	if(insertEmp.getText() == null) 
+		    	{
 		    		System.out.println("Remplir la zone de texte");
-		    	}else {
+		    	}
+		    	else 
+		    	{
 		    		if (ControllerMain.CheckInOut(insertEmp.getText())) {
 		                label.setText("checkInOut Créé");
 		    		}else {

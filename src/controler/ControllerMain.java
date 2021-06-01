@@ -1,7 +1,6 @@
 package controler;
 
 import java.awt.EventQueue;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import com.polyjava.graphics.JGraphicMainServer;
@@ -28,6 +27,7 @@ public class ControllerMain {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 	}
@@ -35,7 +35,9 @@ public class ControllerMain {
 	public static boolean CheckInOut(String idEmp) {
 		try {
 			CheckInOut check = CheckInOutController.createCheckInOut(idEmp, company);
-			checkList.add(check);
+			new TCPControler().sendCheckInOut(check);
+			
+			//checkList.add(check);
 			return true;
 		}catch(Exception e) {
 			return false;

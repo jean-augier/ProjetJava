@@ -5,7 +5,7 @@ import java.net.SocketException;
 
 public class TCPClient extends TCPClientBuilder implements Runnable
 {
-	private Company company; //company to received from server
+	private CheckInOut check; //company to received from server
 	
 	public TCPClient() throws SocketException
 	{
@@ -30,7 +30,7 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 			InputStream in = getS().getInputStream();
 			ObjectInputStream objIn = new ObjectInputStream(in);
 			
-			setCompany((Company) objIn.readObject());
+			setCheck((CheckInOut) objIn.readObject());
 			System.out.println("data received!");
 			
 			closeSocket();
@@ -46,13 +46,11 @@ public class TCPClient extends TCPClientBuilder implements Runnable
 		}
 	}
 	
-	public void setCompany(Company comp)
-	{
-		company = comp;
+	public CheckInOut getCheck() {
+		return check;
 	}
 	
-	public Company getCompany()
-	{
-		return company;
+	public void setCheck(CheckInOut check) {
+		this.check = check;
 	}
 }

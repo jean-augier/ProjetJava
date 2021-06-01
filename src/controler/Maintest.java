@@ -24,12 +24,12 @@ public final class Maintest {
 		
 		cmpy.addDepartement(dp);
 		
-		Serialize ser = new Serialize("test.txt");
+		Serialize ser = new Serialize("SaveConfig.dat");
 		
-		ser.SerializeCompany(cmpy);
-		System.out.println("Ser fais");
-		Company newComp = ser.deserializeCompany();
-		System.out.println(newComp.getDepartmentList().get(0).getEmployeeList().get(0).getPlanningList().get(0));
+		TCPServer server = ser.deserializeTCPServer();
+		System.out.println("IP : " + server.getIp() + " port :"+ server.getPort());
+		
+		Company comp = ser.deserializeCompany();
 	}
 
 }

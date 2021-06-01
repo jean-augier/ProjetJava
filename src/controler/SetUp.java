@@ -1,18 +1,31 @@
 package controler;
 
-import java.net.SocketException;
+import java.io.IOException;
 
 import com.polyjava.poo.*;
 
 public class SetUp {
 	
-	static public TCPClient setClientConfig(String ip, int port) throws SocketException
+	private Serialize serializer;
+	
+	public SetUp()
 	{
-		return(new TCPClient(ip,port));
+		serializer = new Serialize("SaveConfig.dat");
 	}
-
-	public static TCPServer setServerConfig(String ip, int port) throws SocketException
+	
+	/**
+	 * To serialize the current config 
+	 * @param server : the TCPserver object which contain IP and host
+	 * @throws IOException
+	 */
+	public void SaveConfig(String host, int port) throws IOException 
 	{
-		return(new TCPServer(ip,port));
+		TCPServer server = new TCPServer(host, port);
+		serializer.SerializeTCPServer(server);
+	}
+	
+	public TCPServer getConfig() throws IOException, ClassNotFoundException
+	{
+		return (serializer.deserializeTCPServer());
 	}
 }

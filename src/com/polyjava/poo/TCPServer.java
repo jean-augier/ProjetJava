@@ -3,26 +3,29 @@ package com.polyjava.poo;
 import java.io.*;
 import java.net.*;
 
+import controler.Serialize;
+
 public class TCPServer extends TCPServerBuilder implements Runnable
 {
-	private Company company; //the company to send
+	private CheckInOut check; //the company to send
 	
 	public TCPServer() throws SocketException
 	{
 		super();
-		setCompany(null);
+		setCheck(null);
 	}
 	
 	public TCPServer(String ip, int port) throws SocketException
 	{
 		super(ip, port);
-		setCompany(null);
+		setCheck(null);
 	}
 	
-	public TCPServer(Company company) throws SocketException
+
+	public TCPServer(CheckInOut check) throws SocketException
 	{
 		super();
-		setCompany(company);
+		setCheck(check);
 	}
 	
 	public void run()
@@ -37,7 +40,7 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 			System.out.println("...Sending data...");
 			OutputStream out = getS().getOutputStream();
 			ObjectOutputStream objOut = new ObjectOutputStream(out);
-			objOut.writeObject(company);
+			objOut.writeObject(check);
 			System.out.println("Data send !");
 			
 			closeSockets();
@@ -45,17 +48,25 @@ public class TCPServer extends TCPServerBuilder implements Runnable
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			System.out.println("Erreur lors de l'envoie des données. Stockage en cours...");
+			Serialize serializer = new Serialize("SaveCheck.dat");
+			try 
+			{
+				serializer.serializeCheck(getCheck());
+				System.out.println("Pointage enregistré ! Il sera envoyé au prochain démarage.");
+			} 
+			catch (IOException e1) 
+			{
+				System.out.println("Erreurs de sauvegarder des données, veuillez recommencez l'opération.");
+			}
 		}
 	}
 	
-	public void setCompany(Company comp)
-	{
-		company = comp;
+	public CheckInOut getCheck() {
+		return check;
 	}
 	
-	public Company getCompany()
-	{
-		return company;
+	public void setCheck(CheckInOut check) {
+		this.check = check;
 	}
 }
